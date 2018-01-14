@@ -5,7 +5,7 @@ class Course(models.Model):
     """Model designed for courses to be displayed with
     the index view.
     """
-    school_year = models.CharField(max_length=255)
+    school_year = models.CharField(max_length=255, verbose_name="School Year")
     semester_year = models.IntegerField(verbose_name="Year")
     semester_season = models.CharField(max_length=255, verbose_name="Semester")
     description = models.CharField(max_length=255)
