@@ -14,6 +14,9 @@ class Course(models.Model):
                                        verbose_name="Course Number"
                                        )
 
+    class Meta:
+        ordering = ["-semester_year"]
+
 
 class CourseDetail(models.Model):
     """Model designed for course detail pages."""
