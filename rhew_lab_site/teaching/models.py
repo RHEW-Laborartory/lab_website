@@ -6,12 +6,15 @@ class Course(models.Model):
     the index view.
     """
     school_year = models.CharField(max_length=255)
-    semester_year = models.IntegerField()
-    semester_season = models.CharField(max_length=255)
+    semester_year = models.IntegerField(verbose_name="Year")
+    semester_season = models.CharField(max_length=255, verbose_name="Semester")
     description = models.CharField(max_length=255)
-    course = models.CharField(max_length=255, default="")
+    course_dept_num = models.CharField(max_length=255,
+                                       default="",
+                                       verbose_name="Course Number"
+                                       )
 
 
 class CourseDetail(models.Model):
-    """Model designed for a particular course's detail page."""
+    """Model designed for course detail pages."""
     pass
