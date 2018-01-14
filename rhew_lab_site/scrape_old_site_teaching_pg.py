@@ -1,3 +1,8 @@
+#!/usr/bin/python
+"""Scapes the p tags from rhewlab Teaching page, cleans them up,
+and adds them to the new Rhew Lab Website's database.
+"""
+
 from bs4 import BeautifulSoup
 import os
 import re
