@@ -6,14 +6,36 @@
 {% block content %}
     {{ block.super }}
     <h1>Teaching</h1>
-    {% for year in school_years %}
-    <h2>{{ year }}</h2>
-        {% for course in courses %}
-            {% if course.school_year == year %}
-                <!-- <hr> -->
-                <p>{{ course.semester_year }} {{ course.semester_season }}  {{ course.course_dept_num }}: {{ course.description }}</p>
-            {% endif %}
+    <div>
+        <h2>Next Year</h2>
+        <h3>{{ next_school_year }}</h3>
+        {% for course in next_years_courses %}
+            <p>[{{ course.semester_year }} {{ course.semester_season }}]  {{ course.course_dept_num }}: {{ course.description }}</p>
         {% endfor %}
         <br>
-    {% endfor %}
+    </div>
+    <div> 
+        <h2>Current Year</h2>
+        <h3>{{ current_school_year }}</h3>
+        {% for course in current_years_courses %}
+            <p>[{{ course.semester_year }} {{ course.semester_season }}]  {{ course.course_dept_num }}: {{ course.description }}</p>
+        {% endfor %}
+        <br>
+    </div>
+    <div> 
+        <h2>Previous Years</h2>
+        {% for year in school_years %}
+            {% if year != current_school_year and year != next_school_year %}
+                <h3>{{ year }}</h3>
+            {% endif %}
+            {% for course in previous_years_courses %}
+                {% if course.school_year == year %}
+                    <p>[{{ course.semester_year }} {{ course.semester_season }}]  {{ course.course_dept_num }}: {{ course.description }}</p>
+                {% endif %}
+            {% endfor %}
+            {% if year != current_school_year and year != next_school_year %}
+                <br>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}
