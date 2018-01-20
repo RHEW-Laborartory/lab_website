@@ -7,7 +7,6 @@ class LabMemberAdmin(admin.ModelAdmin):
     ordering = ["group", "-order"]
     list_display = [
         "name",
-        "title",
         "group",
         "order"
     ]
@@ -16,7 +15,6 @@ class LabMemberAdmin(admin.ModelAdmin):
     ]
     search_fields = (
         "name",
-        "currently"
     )
     radio_fields = {"group": admin.VERTICAL}
 
