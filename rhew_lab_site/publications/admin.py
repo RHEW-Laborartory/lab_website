@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Publication
+from .models import Publication, Presentation
 
 
 class PublicationAdmin(admin.ModelAdmin):
@@ -23,4 +23,19 @@ class PublicationAdmin(admin.ModelAdmin):
     ]
 
 
+class PresentationAdmin(admin.ModelAdmin):
+    search_fields = (
+        "year",
+        "description"
+    )
+    ordering = ["-order"]
+    list_filter = ["year"]
+    list_display = [
+        "order",
+        "description",
+        "year"
+    ]
+
+
 admin.site.register(Publication, PublicationAdmin)
+admin.site.register(Presentation, PresentationAdmin)
