@@ -6,7 +6,7 @@ class Publication(models.Model):
     authors = models.TextField(default="", )
     title = models.CharField(max_length=400, default="")
     pub_name = models.CharField(
-        max_length=255, default="", 
+        max_length=255, default="",
         verbose_name="Publisher Name",
     )
     volume = models.CharField(max_length=255, null=True)
@@ -18,3 +18,10 @@ class Publication(models.Model):
 
     class Meta:
         ordering = ["-pub_year"]
+
+
+class Presentation(models.Model):
+    order = models.IntegerField(default=0)
+    description = models.TextField(default="")
+    year = models.IntegerField(default=0)
+
