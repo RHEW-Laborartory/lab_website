@@ -26,7 +26,7 @@ class Course(models.Model):
 
 class CoursePage(models.Model):
     """Model designed for course detail pages."""
-    last_updated = models.DateTimeField(auto_now_add=True, null=True)
+    last_updated = models.DateTimeField(auto_now=True, null=True)
     full_description = models.TextField(verbose_name="Description", default="")
     course_dept_num = models.CharField(
         max_length=255, verbose_name="Course Number", default=""
